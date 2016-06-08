@@ -3,7 +3,7 @@ import numpy as np
 import os,cPickle
 from scipy.misc import imread, imresize, imsave
 
-def load_data(img_size,path = '/Users/subercui/Downloads/pr2016'):
+def load_data(img_size,path = '/home/suber/Downloads/pr2016'):
     train_dir=os.path.join(path, 'trainset%d.pkl'%img_size)
     valid_dir=os.path.join(path, 'validset%d.pkl'%img_size)
     if not os.path.exists(train_dir):
