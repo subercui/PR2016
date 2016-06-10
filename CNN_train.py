@@ -21,7 +21,7 @@ import PR2016
 
 batch_size = 32
 nb_classes = 7
-nb_epoch = 50
+nb_epoch = 100
 data_augmentation = True
 
 # input image dimensions
@@ -42,34 +42,33 @@ Y_test = np_utils.to_categorical(y_test, nb_classes)
 
 model = Sequential()
 
-model.add(Convolution2D(32, 5, 5,
+model.add(Convolution2D(64, 3, 3,
                         input_shape=(img_channels, img_rows, img_cols)))
 model.add(Activation('relu'))
-model.add(Convolution2D(32, 3, 3))
-model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Convolution2D(32, 3, 3))
+model.add(Convolution2D(64, 3, 3))
 model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-#model.add(Dropout(0.25))
-
-model.add(Convolution2D(32, 3, 3))
-model.add(Activation('relu'))
-model.add(Convolution2D(32, 3, 3))
+model.add(Convolution2D(64, 3, 3))
 model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 #model.add(Dropout(0.25))
 
-model.add(Convolution2D(32, 3, 3))
+model.add(Convolution2D(128, 3, 3))
 model.add(Activation('relu'))
-model.add(Convolution2D(32, 3, 3))
-model.add(Activation('relu'))
+model.add(Convolution2D(128, 3, 3))
 model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
+#model.add(Dropout(0.25))
+
+model.add(Convolution2D(128, 3, 3))
+model.add(Activation('relu'))
+model.add(Convolution2D(128, 3, 3))
+model.add(Activation('relu'))
+#model.add(MaxPooling2D(pool_size=(2, 2)))
 
 
 model.add(Flatten())
-model.add(Dense(64))
+model.add(Dense(128))
 model.add(Activation('relu'))
 #model.add(Dropout(0.5))
 model.add(Dense(nb_classes))
