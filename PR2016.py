@@ -84,4 +84,4 @@ def filesinroot(dir,wildcard,recursion):#目录中的文件
     return matchs
     
 if __name__=='__main__':
-    (X_train,y_train),(X_valid,y_valid)=load_data(250)
+    (X_train,y_train),(X_valid,y_valid)=load_data(70)
